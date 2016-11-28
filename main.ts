@@ -1,7 +1,9 @@
 // this import should be first in order to load some required settings (like globals and reflect-metadata)
-import { platformNativeScriptDynamic } from "nativescript-angular/platform";
-
-import { AppModule } from "./app.module";
-
-const platform = platformNativeScriptDynamic();
-platform.bootstrapModule(AppModule);
+function main() {
+    var platformModule = require("nativescript-angular/platform");
+    var appModule = require("./app.module");
+    const platform = platformModule.platformNativeScriptDynamic();
+    platform.bootstrapModule(appModule.AppModule);
+}
+global["__appReload"] = main;
+main();
